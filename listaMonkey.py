@@ -21,19 +21,17 @@ def pedido(listaProducto, listaCheck):
            table.add_row(str(cont), listaProducto[i], listaCheck[i])
        cont+= 1
 
-def editar(listaProducto, listaCheck):
-    editarPedido = input("¿Quiere editar el pedido? ")
-    if(editarPedido == "si"):
-        pregunta = input("¿Qué producto desea editar? ")
-        for i, producto in enumerate(listaProducto):
-            if(producto == pregunta):
-                del listaProducto[i]
-                del listaCheck[i]
-                print(f"Producto '{producto}' eliminado del pedido.")
-            else:
-                print(f"El producto '{pregunta}' no se encuentre en el pedido")
-
 pedido(listaProducto, listaCheck)
-editar(listaProducto, listaCheck)
+editarPedido = input("¿Quiere editar el pedido? ")
+if(editarPedido == "si"):
+    pregunta = input("¿Qué producto desea editar? ")
+    for i, producto in enumerate(listaProducto):
+        if(producto == pregunta):
+            del listaProducto[i]
+            del listaCheck[i]
+            print(f"Producto '{producto}' eliminado del pedido.")
+        else:
+            print(f"El producto '{pregunta}' no se encuentre en el pedido")
+
 console = Console()
 console.print(table)
